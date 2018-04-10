@@ -1,0 +1,18 @@
+import 'normalize.css';
+import 'core-js/es6/map';
+import 'core-js/es6/set';
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import { Provider } from 'react-redux';
+import { Store } from './store/index';
+
+import App from './components/App';
+
+ReactDOM.render(
+  <Provider store={ Store }>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
