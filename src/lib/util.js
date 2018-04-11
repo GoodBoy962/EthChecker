@@ -1,7 +1,3 @@
-/**
- * Return composed result
- * @param {...Function} functions
- */
 export const compose =
   (...functions) =>
     (...args) =>
@@ -12,44 +8,16 @@ export const compose =
           functions[0](...args)
         );
 
-/**
- * Return composed result for "promisified" functions
- * @param {...Function} functions
- */
-export const pcompose =
-  (...functions) =>
-    (...args) =>
-      functions
-        .slice(1)
-        .reduce(
-          async (x, f) => f(await x),
-          functions[0](...args)
-        );
-
-/**
- *
- * @param {*} object
- */
 export const maybe =
   object =>
     (path, dvalue = x => x) =>
       object[path] || dvalue;
 
-/**
- * Return reducer
- * @param {Object} dstate  - Default state for reducer
- * @param {Object} actions - Action map
- */
 export const ReducerFactory =
   (dstate, actions) =>
     (state = dstate, action = {}) =>
       maybe(actions)(action.type, x => x)(state, action);
 
-/**
- * Immutable assign objects
- * @param {Object} object
- * @param {Objects} objects
- */
 export const Assing =
   (object, ...objects) =>
     Object.assign({}, object, ...objects);

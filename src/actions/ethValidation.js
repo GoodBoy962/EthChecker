@@ -1,4 +1,4 @@
-import isAddress from '../lib/ethereum';
+import { isAddress } from '../lib/ethereum';
 
 import {
   ETHEREUM_ADDRESS_CHECK,
